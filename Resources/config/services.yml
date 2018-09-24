@@ -1,0 +1,41 @@
+services:
+
+  # Use the structure service to access all registered united controllers
+  united.core.structure:
+    class: United\CoreBundle\Util\UnitedStructure
+    arguments: [ @sensio_framework_extra.routing.loader.annot_class ]
+
+  # Use the router to generate routes for registered united controllers
+  united.core.router:
+    class: United\CoreBundle\Routing\UnitedControllerRoutingLoader
+    arguments: [ @united.core.structure ]
+    tags:
+      - { name: routing.loader }
+
+  # The United service
+  united.core.united:
+    class: United\CoreBundle\Util\United
+    arguments: [ @united.core.structure, @request_stack, '%united.core.config%', @router ]
+
+  # Make the united object accessable in twig templates
+  united.core.twig.united:
+    class: United\CoreBundle\Twig\UnitedExtension
+    arguments: [ @united.core.united ]
+    public: false
+    tags:
+      - { name: twig.extension }
+
+  # Make viewable united controller accessable
+  united.core.twig.controller.view:
+    class: United\CoreBundle\Twig\ControllerViewInterfaceExtension
+    arguments: [ @united.core.structure, @request_stack, @router, @service_container ]
+    public: false
+    tags:
+       - { name: twig.extension }
+
+  # Make viewable united controller accessable
+  united.core.twig.controller.preview:
+    class: United\CoreBundle\Twig\ControllerPreviewInterfaceExtension
+    public: false
+    tags:
+       - { name: twig.extension }

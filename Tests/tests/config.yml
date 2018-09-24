@@ -1,0 +1,27 @@
+framework:
+    secret: 'ThisIsNoSecret'
+    templating:
+        engines: ['twig']
+    router:
+        resource: "%kernel.root_dir%/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: false
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  en
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        path:     "%kernel.root_dir%/sqlite.db"
+        charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: true
+        auto_mapping: true
