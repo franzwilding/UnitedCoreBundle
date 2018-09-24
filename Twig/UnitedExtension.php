@@ -4,7 +4,7 @@ namespace United\CoreBundle\Twig;
 
 use United\CoreBundle\Util\United;
 
-class UnitedExtension extends \Twig_Extension
+class UnitedExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
 
     /**
