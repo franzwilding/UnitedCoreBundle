@@ -14,18 +14,6 @@
       "email": "franz@2robots.at"
     }
   ],
-  "require": {
-    "php": ">=5.3.3",
-    "symfony/symfony": "2.7.*",
-    "doctrine/orm": "~2.2,>=2.2.3,<2.5",
-    "doctrine/dbal": "<2.5",
-    "doctrine/doctrine-bundle": "~1.2",
-    "sensio/framework-extra-bundle": "~3.0,>=3.0.2"
-  },
-  "require-dev": {
-    "sensio/generator-bundle": "~2.3",
-    "matthiasnoback/symfony-config-test": "0.*"
-  },
   "autoload": {
     "psr-4": {"United\\CoreBundle\\": ""}
   }
